@@ -14,7 +14,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "users", uniqueConstraints = {
+@Table(name = "usersproject", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
             "username"
         }),
@@ -45,6 +45,15 @@ public class User extends DateAudit {
     @Size(max = 100)
     private String password;
 
+    @NotBlank
+    private String company;
+
+    @NotBlank
+    private String phone;
+
+    private String bdm;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -62,6 +71,15 @@ public class User extends DateAudit {
         this.password = password;
     }
 
+    public User(String name, String username, String email, String password, String company, String phone, String bdm) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.company = company;
+        this.phone = phone;
+        this.bdm = bdm;
+    }
     public Long getId() {
         return id;
     }
@@ -108,5 +126,29 @@ public class User extends DateAudit {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBdm() {
+        return bdm;
+    }
+
+    public void setBdm(String bdm) {
+        this.bdm = bdm;
     }
 }

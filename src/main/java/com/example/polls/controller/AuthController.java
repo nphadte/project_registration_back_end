@@ -74,6 +74,9 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+        logger.info("The /signup values are:" + signUpRequest.getUsername() +": :" + signUpRequest.getEmail()
+                +": :" + signUpRequest.getName() +": :" + signUpRequest.getPassword() +": :" + signUpRequest.getCompany()
+                +": :" + signUpRequest.getBdm() +": :" + signUpRequest.getPhone());
         if(userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity(new ApiResponse(false, "Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
@@ -85,8 +88,7 @@ public class AuthController {
         }
 
         // Creating user's account
-        User user = new User(signUpRequest.getName(), signUpRequest.getUsername(),
-                signUpRequest.getEmail(), signUpRequest.getPassword());
+        User user = new User(signUpRequest.getName(), signUpRequest.getUsername(),signUpRequest.getEmail(),signUpRequest.getPassword(), signUpRequest.getCompany(), signUpRequest.getPhone(), signUpRequest.getBdm());
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 

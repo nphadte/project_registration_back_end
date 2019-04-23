@@ -7,16 +7,18 @@ public class UserProfile {
     private String username;
     private String name;
     private Instant joinedAt;
-    private Long pollCount;
-    private Long voteCount;
+    private String company;
+    private String phone;
+    private String bdm;
 
-    public UserProfile(Long id, String username, String name, Instant joinedAt, Long pollCount, Long voteCount) {
+    public UserProfile(Long id, String username, String name, Instant joinedAt, String company, String bdm, String phone) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.joinedAt = joinedAt;
-        this.pollCount = pollCount;
-        this.voteCount = voteCount;
+        this.company = company;
+        this.bdm = bdm;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -51,19 +53,40 @@ public class UserProfile {
         this.joinedAt = joinedAt;
     }
 
-    public Long getPollCount() {
-        return pollCount;
+    public String getCompany() {
+        return company;
     }
 
-    public void setPollCount(Long pollCount) {
-        this.pollCount = pollCount;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public Long getVoteCount() {
-        return voteCount;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setVoteCount(Long voteCount) {
-        this.voteCount = voteCount;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBdm() {
+        return bdm;
+    }
+
+    public void setBdm(String bdm) {
+        this.bdm = bdm;
+    }
+
+    @Override
+    public String toString() {
+        return "UserProfile{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", joinedAt=" + joinedAt +
+                ", company='" + company + '\'' +
+                ", phone='" + phone + '\'' +
+                ", bdm='" + bdm + '\'' +
+                '}';
     }
 }

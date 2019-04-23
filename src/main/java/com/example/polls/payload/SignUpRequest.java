@@ -24,6 +24,13 @@ public class SignUpRequest {
     @Size(min = 6, max = 20)
     private String password;
 
+    @NotBlank
+    private String company;
+
+    @NotBlank
+    private String phone;
+
+    private String bdm;
 
 
     public String getName() {
@@ -56,5 +63,29 @@ public class SignUpRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBdm() {
+        return bdm;
+    }
+
+    public void setBdm(String bdm) {
+        this.bdm = bdm;
     }
 }
