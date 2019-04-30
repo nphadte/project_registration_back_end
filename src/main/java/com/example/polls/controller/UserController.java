@@ -57,6 +57,4 @@ public class UserController {
         logger.info("The userProfile returned is :" + userProfile.toString() );
         return userProfile;
     }
-
-
 }

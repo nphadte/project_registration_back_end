@@ -27,5 +27,6 @@ nbdist/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 .ebextensions
+*.log
+*.gz
 
-src/main/resources/application-prod.properties
